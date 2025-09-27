@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Простой сайт</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+            --bg: #f2f5f8;
+            --text: #21252b;
+            --accent: #2c7be5;
+            --accent-dark: #1b5bbd;
+            font-size: clamp(16px, 1.2vw + 14px, 18px);
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #111827;
+                --text: #e8edf5;
+            }
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+        header {
+            padding: 3.5rem 1.5rem 2rem;
+            text-align: center;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        h1 {
+            margin: 0 0 0.75rem;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            line-height: 1.1;
+        }
+        p.lead {
+            margin: 0 auto;
+            max-width: 36rem;
+            font-size: 1.15rem;
+            line-height: 1.6;
+        }
+        main {
+            display: grid;
+            gap: 1.5rem;
+            padding: 0 1.5rem 3rem;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        section {
+            border-radius: 18px;
+            padding: 1.75rem;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 24px 48px rgba(18, 38, 63, 0.08);
+        }
+        section h2 {
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            font-size: 1.6rem;
+        }
+        section ul {
+            margin: 0;
+            padding-left: 1.1rem;
+            line-height: 1.7;
+        }
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: #fff;
+            padding: 0.85rem 1.6rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .cta:hover,
+        .cta:focus-visible {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 32px rgba(44, 123, 229, 0.25);
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 1.5rem 3rem;
+            color: rgba(33, 37, 43, 0.6);
+            font-size: 0.95rem;
+        }
+        @media (max-width: 600px) {
+            header {
+                padding-top: 2.5rem;
+            }
+            section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Простой сайт-портфолио</h1>
+        <p class="lead">Минималистичная страница, где можно рассказать о себе, своих проектах и способах связи. Идеально подходит как стартовая визитка.</p>
+        <a class="cta" href="#contacts">Связаться со мной</a>
+    </header>
+    <main>
+        <section>
+            <h2>Обо мне</h2>
+            <p>Я занимаюсь веб-разработкой и люблю создавать красивые, удобные интерфейсы. В работе опираюсь на современные технологии и всегда стремлюсь к понятным решениям.</p>
+        </section>
+        <section>
+            <h2>Что я умею</h2>
+            <ul>
+                <li>Разрабатываю адаптивные сайты под разные устройства</li>
+                <li>Проектирую интерфейсы и настраиваю дизайн-системы</li>
+                <li>Оптимизирую страницы для быстрой загрузки</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Последние проекты</h2>
+            <p>Недавно я работал над лендингом для образовательного сервиса и внутренней панелью аналитики для IT-команды. В каждом проекте уделял внимание UX и визуальной составляющей.</p>
+        </section>
+        <section id="contacts">
+            <h2>Контакты</h2>
+            <p>Связаться со мной можно по электронной почте <a href="mailto:hello@example.com">hello@example.com</a> или в Telegram <a href="https://t.me/example">@example</a>.</p>
+        </section>
+    </main>
+    <footer>© 2024 Простой сайт-портфолио</footer>
+</body>
+</html>
