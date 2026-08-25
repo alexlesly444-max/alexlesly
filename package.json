@@ -1,0 +1,8 @@
+{
+  "name": "alexlesly-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:copycat": "node --test copycat/app.test.mjs"
+  }
+}
