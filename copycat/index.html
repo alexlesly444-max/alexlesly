@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; font-src 'none'; object-src 'none'; media-src 'none'; worker-src 'none'; manifest-src 'none';">
+    <meta name="referrer" content="no-referrer">
+    <meta name="color-scheme" content="light dark">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Secure Paste</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="card" aria-label="Secure Paste">
+        <div id="compose-view">
+          <textarea id="message" aria-label="Сообщение" placeholder="Сообщение" maxlength="49152" autofocus></textarea>
+          <button id="send" type="button">Отправить</button>
+          <p id="compose-error" class="notice" role="alert" hidden></p>
+        </div>
+
+        <div id="result-view" hidden>
+          <div class="result-row"><span>Link</span><code id="paste-link"></code></div>
+          <div class="result-row"><span>Password</span><code id="paste-password"></code></div>
+          <button id="copy" type="button">Копировать</button>
+          <p id="copy-status" class="notice" aria-live="polite"></p>
+        </div>
+
+        <div id="unlock-view" hidden>
+          <label for="password">Password</label>
+          <input id="password" type="text" inputmode="text" autocomplete="off" autocapitalize="none" spellcheck="false">
+          <button id="open" type="button">Открыть</button>
+          <p id="unlock-error" class="notice" role="alert" hidden></p>
+        </div>
+
+        <div id="message-view" hidden>
+          <pre id="plaintext" tabindex="0"></pre>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

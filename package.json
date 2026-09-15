@@ -1,0 +1,13 @@
+{
+  "name": "alexlesly-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "npm run test:copycat && npm run test:e2e",
+    "test:copycat": "node --test copycat/app.test.mjs",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
+  }
+}
