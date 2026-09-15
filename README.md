@@ -1,5 +1,8 @@
 # Secure Paste
 
+> Проектирование следующего, сетевого этапа вынесено в документ
+> [Burner Messenger Architecture v0.1](./docs/burner-messenger-architecture.md).
+
 Статическая страница [`/copycat/`](./copycat/) предназначена для публикации через GitHub Pages. Она не использует backend, API, базу данных, browser storage, сторонние библиотеки или сетевые запросы после загрузки собственных файлов.
 
 ## Архитектура
