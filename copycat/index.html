@@ -13,30 +13,81 @@
   </head>
   <body>
     <main class="shell">
-      <section class="card" aria-label="Secure Paste">
+      <section class="card" aria-labelledby="page-title">
+        <header class="intro">
+          <p class="eyebrow">Burn after open</p>
+          <h1 id="page-title">Secure Paste</h1>
+          <p>Текст шифруется в этом браузере. Передайте ссылку и ключ расшифрования отдельно.</p>
+        </header>
+
         <div id="compose-view">
           <textarea id="message" aria-label="Сообщение" placeholder="Сообщение" maxlength="49152" autofocus></textarea>
-          <button id="send" type="button">Отправить</button>
-          <p id="compose-error" class="notice" role="alert" hidden></p>
+          <button id="send" type="button">Зашифровать</button>
+          <p id="compose-error" class="notice error" role="alert" hidden></p>
         </div>
 
         <div id="result-view" hidden>
-          <div class="result-row"><span>Link</span><code id="paste-link"></code></div>
-          <div class="result-row"><span>Password</span><code id="paste-password"></code></div>
-          <button id="copy" type="button">Копировать</button>
+          <div class="result-row">
+            <span>Ссылка</span>
+            <code id="paste-link"></code>
+            <button id="copy-link" class="secondary compact" type="button">Копировать ссылку</button>
+          </div>
+          <div class="result-row">
+            <span>Ключ расшифрования</span>
+            <code id="paste-secret-key"></code>
+            <button id="copy-key" class="secondary compact" type="button">Копировать ключ</button>
+          </div>
+          <p class="hint">Для повышенной конфиденциальности отправьте ссылку и ключ разными каналами.</p>
           <p id="copy-status" class="notice" aria-live="polite"></p>
         </div>
 
         <div id="unlock-view" hidden>
-          <label for="password">Password</label>
-          <input id="password" type="text" inputmode="text" autocomplete="off" autocapitalize="none" spellcheck="false">
+          <label for="secret-key">Ключ расшифрования</label>
+          <input id="secret-key" type="text" inputmode="text" autocomplete="off" autocapitalize="none" spellcheck="false">
+          <label for="auto-burn">Локальное автоудаление после открытия</label>
+          <select id="auto-burn">
+            <option value="0">Вручную</option>
+            <option value="30">30 секунд</option>
+            <option value="60">1 минута</option>
+            <option value="300">5 минут</option>
+          </select>
           <button id="open" type="button">Открыть</button>
-          <p id="unlock-error" class="notice" role="alert" hidden></p>
+          <p id="unlock-error" class="notice error" role="alert" hidden></p>
         </div>
 
         <div id="message-view" hidden>
+          <p id="burn-timer" class="timer" aria-live="polite" hidden></p>
           <pre id="plaintext" tabindex="0"></pre>
+          <button id="burn" class="danger" type="button">Удалить локально</button>
         </div>
+
+        <div id="burned-view" class="neutral" hidden>
+          <p>Локальная копия удалена.</p>
+          <button id="start-over" class="secondary" type="button">Новая записка</button>
+        </div>
+
+        <section class="privacy" aria-labelledby="privacy-title">
+          <h2 id="privacy-title">Что важно знать</h2>
+          <div class="privacy-grid">
+            <div>
+              <h3>Защищено</h3>
+              <ul>
+                <li>Шифрование выполняется локально.</li>
+                <li>Сервер не получает текст или отдельный ключ.</li>
+                <li>Базы записок нет.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Не защищено</h3>
+              <ul>
+                <li>Получатель может сохранить текст или снимок экрана.</li>
+                <li>Сохранённые ссылка и ключ позволяют открыть записку снова.</li>
+                <li>Браузер, ОС и расширения могут оставить локальные следы.</li>
+              </ul>
+            </div>
+          </div>
+          <p>Burn after open означает только локальную очистку, а не глобально гарантированное однократное чтение.</p>
+        </section>
       </section>
     </main>
   </body>
